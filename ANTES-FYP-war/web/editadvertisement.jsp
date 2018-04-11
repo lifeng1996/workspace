@@ -67,6 +67,14 @@
                 check();
                 checkoripassword();
             }
+            function checksalary() {
+                var salary = document.getElementById("jobsalary").value;
+                if (salary == "Negotiable during interview" || !isNaN(salary))
+                    document.getElementById("jobsalary").setCustomValidity('');
+                else
+                    document.getElementById("jobsalary").setCustomValidity("Pleas enter numeric characters only(E.g: 2400)");
+
+            }
             function check() {
                 if (document.getElementById("loginpwd").value ===
                         document.getElementById("conpwd").value) {
@@ -397,7 +405,7 @@
                                 </div>
                                 <div class ="form-group">
                                     <label for="jobsalary">Salary(Leave blank if only negotiate during interview): RM </label>
-                                    <input type="jobsalary" class="form-control" id="jobsalary" name="jobsalary" placeholder="Enter the salary" value="<%=resultSet.getString("JOBSALARY")%>" pattern="[0-9]{3,}" title="Pleas enter numeric characters only(E.g: 2400)">
+                                    <input type="jobsalary" class="form-control" id="jobsalary" name="jobsalary" placeholder="Enter the salary" value="<%=resultSet.getString("JOBSALARY")%>">
                                 </div>
                                 <div class="form-group">
                                     <label for="jobdesc">Job Description:</label>
@@ -412,7 +420,7 @@
                                     </textarea>
                                 </div>  
                                 <br>
-                                <button type="submit" id="submitbutton" name="submitbutton" class="btn btn-default">Submit</button>
+                                <button type="submit" id="submitbutton" name="submitbutton" class="btn btn-default" onclick="checksalary()">Submit</button>
                             </form>
                         </div>
                         <div class="footer">

@@ -76,6 +76,7 @@ public class RegisterServlet extends HttpServlet {
                      out.println("<script type=\"text/javascript\">");
    out.println("alert('Account is created Successfully');");
    out.println("location='homepage.jsp';");
+   out.println("</script>");
                 }else{
                     Employer em = null;
                     em = new Employer(u);
